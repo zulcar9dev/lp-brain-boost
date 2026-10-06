@@ -30,7 +30,7 @@
   // --- A/B headline: ?h=1|2|3 (per produk) ---
   var HEADLINES_ALL = {
     "tidur-nyenyak": {
-      "1": "Peluang Tidur Nyenyak Ada Tiap Malam. Tapi Ada yang Terus Nolak \u2014 Tanpa Kamu Sadari.",
+      "1": "Peluang Tidur Nyenyak Ada Tiap Malam. Tapi Ada yang Terus Nolak. Tanpa Kamu Sadari.",
       "2": "Malam Lebih Tenang, Pagi Nggak Gampang Emosi",
       "3": "Audio 30 Menit Sebelum Tidur, Dipandu Sampai Rileks"
     },

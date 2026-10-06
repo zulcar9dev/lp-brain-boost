@@ -57,9 +57,14 @@ section{padding:56px 0}
   text-align:center;
 }
 .btn-main{font-weight:700}
-.btn-sep{opacity:.6;margin:0 .35em}
+.btn-sep{opacity:.6;margin:0 .45em;font-weight:400}
 .btn-price{font-weight:700;white-space:nowrap}
 .btn-sub{display:inline;font-size:inherit;font-weight:700}
+/* jarak tombol konsisten antar-section (mobile + desktop) */
+.split-copy .btn{margin-top:16px}
+.manfaat .center,.testi .center,.paket .center,.faq .center{margin-top:10px}
+.price-card .btn{margin-top:8px}
+.final .btn{margin-top:6px}
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:translateY(0)}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--cta);outline-offset:2px;border-radius:6px}
@@ -77,6 +82,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .mini-quote{margin:20px 0 0;border-left:3px solid var(--cta);padding:4px 0 4px 14px}
 .mini-quote blockquote{margin:0;font-style:italic;font-size:15.5px;color:#fff}
 .mini-quote figcaption{font-size:13px;color:#b9b5e3}
+.hero-visual{margin:0}
 .hero-visual img{width:100%;aspect-ratio:4/5;object-fit:cover;box-shadow:0 20px 60px rgba(0,0,0,.35)}
 .visual-cap{font-size:12.5px;color:#b9b5e3;text-align:center;margin-top:8px}
 
@@ -106,8 +112,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .solusi{background:var(--white);border-top:1px solid var(--line)}
 .split{display:grid;gap:28px}
 .split-media{display:grid;gap:12px}
-.tech{margin:16px 0;padding-left:20px}
+.tech{margin:16px 0;padding-left:22px}
 .tech li{margin-bottom:8px}
+.tech li::marker{font-weight:700;color:var(--navy)}
 .tech-img{margin:14px 0 20px;border:1px solid var(--line)}
 
 /* quote break — full width */
@@ -230,12 +237,13 @@ details p{margin:.6em 0 0;font-size:14.5px;color:#3d3a5c}
   .hero-copy h1{order:2;text-align:center;margin-inline:auto}
   .hero-copy .sub{order:3;font-size:16px;text-align:center;margin-inline:auto}
   .hero-copy .cta-block{order:4;margin:16px 0 0}
-  .hero-visual{order:5;min-width:0;display:flex;flex-direction:column;align-items:center}
-  .hero-copy .micro{order:6;line-height:1.6;text-wrap:pretty;text-align:center;margin-top:8px}
-  .hero-copy .mini-quote{order:7;margin-top:12px;text-align:left}
-  .hero-visual img{width:100%;max-width:420px;margin:0 auto;aspect-ratio:auto;max-height:none;height:auto;object-fit:contain}
-  .visual-cap{width:100%;max-width:420px;margin:6px auto 0;text-align:center;text-wrap:balance;line-height:1.5}
+  .hero-visual{order:5;min-width:0;width:100%;max-width:420px;margin-inline:auto;display:flex;flex-direction:column;align-items:stretch}
+  .cta-block .micro{line-height:1.6;text-wrap:pretty;text-align:center;margin-top:8px}
+  .hero-copy .mini-quote{order:6;margin-top:14px;text-align:left}
+  .hero-visual img{width:100%;max-width:none;margin:0;aspect-ratio:auto;max-height:none;height:auto;object-fit:contain}
+  .visual-cap{width:auto;max-width:none;margin:8px 0 0;text-align:center;text-wrap:balance;line-height:1.5}
   .btn{white-space:normal;width:100%;overflow:visible;text-overflow:clip;line-height:1.35;padding:14px 18px}
+  .btn-main{display:block}
   .btn-sep{display:none}
   .btn-price{display:block;font-size:13.5px;font-weight:500;opacity:.9;margin-top:2px}
   .btn-sub{display:block;font-size:13.5px;font-weight:500;margin-top:2px}
@@ -248,32 +256,34 @@ details p{margin:.6em 0 0;font-size:14.5px;color:#3d3a5c}
   .split-media img{border-radius:12px}
   /* tech: hilangkan nomor ganda, pakai nomor ol saja */
   .tech{list-style:decimal;padding-left:22px}
-  /* testi: tampil utuh tanpa crop */
+  /* testi: tampil utuh tanpa crop, kutip + nama center */
   .tcard{display:flex;flex-direction:column;text-align:center}
   .tcard img{width:100%;height:auto;max-height:none;object-fit:contain;object-position:center}
-  .ttext{flex:1;text-wrap:pretty}
+  .ttext{flex:1;text-wrap:pretty;text-align:center}
   .tby{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
   .badge{margin-left:0}
-  /* grid5 highlight pertama */
-  .grid5 article:first-child{background:#FFF1C4;border:1px solid #EADFB8}
-  /* center alignment mobile: heading + penutup emosional saja, body tetap kiri */
-  .masalah h2,.solusi h2,.manfaat h2,.cara h2,.testi h2,.paket h2,.jaminan h2,.faq h2{text-align:center;text-wrap:balance}
+  /* highlight pertama dimatikan agar konsisten dengan desktop */
+  /* center mobile: heading + teks pendek saja, list/body panjang tetap kiri */
+  .masalah h2,.mekanisme h2,.solusi h2,.manfaat h2,.cara h2,.vs h2,.testi h2,.paket h2,.jaminan h2,.harga h2,.faq h2,.final h2,.creator-card h2{text-align:center;text-wrap:balance}
   .masalah-close{text-align:center;margin-inline:auto}
-  .manfaat .lede,.testi .disclaimer,.paket .disclaimer{text-align:center;margin-inline:auto}
-  .solusi .split-copy>p:first-of-type{text-align:center;margin-inline:auto}
+  .mekanisme .lede,.manfaat .lede,.solusi .split-copy>p,.vs-close,.testi .disclaimer,.paket .disclaimer{text-align:center;margin-inline:auto;text-wrap:pretty}
   .cta-block .micro,.split-copy .micro{text-align:center;text-wrap:pretty}
-  .jcard,.grid5 article{text-align:center}
-  .grid5 p,.jcard p{text-align:center}
+  /* kartu manfaat/jaminan: judul + isi pendek di-center biar rapi di HP */
+  .grid5 article,.jcard{text-align:center}
+  .grid5 h3,.jcard h3{text-align:center;text-wrap:balance}
+  .grid5 p,.jcard p{text-align:center;text-wrap:pretty}
+  /* paket: tag + judul center, list tetap kiri biar gampang di-scan */
   .lapis{text-align:center}
+  .lapis h3{text-align:center;text-wrap:balance}
   .lapis ul{text-align:left}
   .footer{text-align:center}
   .footer nav{text-align:center}
   .sticky{padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
-  .sticky-in{flex-direction:column;align-items:stretch;text-align:center;gap:6px}
-  .sticky-txt{margin:0;font-size:13px}
+  .sticky-in{display:block;text-align:center}
+  .sticky-txt{display:none}
   .btn-sticky{width:100%;padding:12px 16px;font-size:14px}
-  .cookie{bottom:118px}
-  .footer{padding-bottom:150px}
+  .cookie{bottom:86px}
+  .footer{padding-bottom:110px}
 }
 @media(max-width:380px){
   .btn{font-size:15px;padding:13px 16px}
