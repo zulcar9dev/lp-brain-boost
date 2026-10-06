@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mengalihkan ke halaman resmi…</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
+</head>
+<body>
+<main class="doc">
+<div class="wrap narrow center" style="padding:80px 20px">
+<p class="eyebrow" id="eyebrow">BrainBoost</p>
+<h1 style="font-size:24px">Mengalihkan ke halaman resmi…</h1>
+<p class="lede" id="lede">Kamu akan diarahkan ke halaman pembayaran resmi Mahir Digital untuk menyelesaikan pesanan Rp298.000.</p>
+<p><a class="btn" id="go" href="#">Lanjut Sekarang</a></p>
+<p class="micro">Jika tidak berpindah otomatis dalam 3 detik, klik tombol di atas.</p>
+</div>
+</main>
+<script>
+(function () {
+  var cfg = window.BB_CONFIG || {};
+  var qs = new URLSearchParams(window.location.search);
+  var PRODUCT = qs.get("product") || "tidur-nyenyak";
+  var PCFG = ((cfg.PRODUCTS || {})[PRODUCT]) || {};
+  var base = PCFG.CHECKOUT_URL || cfg.CHECKOUT_URL || "";
+  var PRICE = PCFG.PRICE || 298000;
+  var NAMES = {
+    "tidur-nyenyak": "BrainBoost Tidur Nyenyak",
+    "money-magnet": "BrainBoost Money Magnet",
+    "relaxation": "BrainBoost Relaxation"
+  };
+  var nm = NAMES[PRODUCT] || "BrainBoost";
+  var eb = document.getElementById("eyebrow");
+  if (eb) eb.textContent = nm;
+  var lede = document.getElementById("lede");
+  if (lede) lede.textContent = "Kamu akan diarahkan ke halaman pembayaran resmi Mahir Digital untuk menyelesaikan pesanan Rp" + PRICE.toLocaleString("id-ID") + " (" + nm + ").";
+  ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid","gclid","slot"].forEach(function (k) {
+    try { var s = sessionStorage.getItem("bb_" + k); if (s && !qs.get(k)) qs.set(k, s); } catch (e) {}
+  });
+  var slot = qs.get("slot") || "lanjut";
+  qs.delete("slot");
+  var target = base;
+  try {
+    var u = new URL(base);
+    qs.forEach(function (v, k) { if (k.indexOf("utm_") === 0 || k === "fbclid" || k === "gclid") u.searchParams.set(k, v); });
+    if (!u.searchParams.get("utm_term")) u.searchParams.set("utm_term", "slot-" + slot);
+    if (!u.searchParams.get("utm_campaign")) u.searchParams.set("utm_campaign", PRODUCT + "_" + slot);
+    target = u.toString();
+  } catch (e) {}
+  var a = document.getElementById("go");
+  if (a) { a.href = target; a.target = "_self"; a.rel = "nofollow sponsored noopener"; }
+  setTimeout(function () { window.location.replace(target); }, 1200);
+})();
+</script>
+</body>
+</html>

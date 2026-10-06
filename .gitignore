@@ -1,0 +1,26 @@
+# OS / editor junk — jangan masuk repo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node / tooling (kalau nanti ada build step)
+node_modules/
+dist/
+out/
+
+# Opencode tool output
+.local/
+
+# Log
+*.log
+
+# Arsip mentah vendor — JANGAN masuk repo (lihat README)
+# Terlalu besar (258MB, ada video 75-81MB) + hanya untuk referensi lokal
+materi/
